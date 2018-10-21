@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cry-O</title>
+    <link rel="icon" href="slike\ikonica.png">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      #floating-panel {
+        background-color: #fff;
+        border: 1px solid #999;
+        left: 25%;
+        padding: 5px;
+        position: absolute;
+        top: 10px;
+        z-index: 5;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="floating-panel">
+      <button onclick="toggleHeatmap()">Toggle points</button>
+    </div>
+    <div id="map"></div>
+    <script>
+
+      // This example requires the Visualization library. Include the libraries=visualization
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=visualization">
+
+      var map, heatmap;
+      var markers = [];
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: {lat: 44.8, lng: 20.45},
+          mapTypeId: 'satellite'
+
+        });
+
+        heatmap = new google.maps.visualization.HeatmapLayer({
+          data: getPoints(),
+          map: map
+        });
+        google.maps.event.addListener(map, 'click', function (event) {
+            placeMarker(event.latLng);
+            document.getElementById("lat").value = event.latLng.lat();
+            document.getElementById("lng").value = event.latLng.lng();
+        });
+      }
+      //
+      //google.maps.event.addDomListener(window, 'load', initialize);
+      //
+      var ax,ay;
+      var indeks;
+      function toRad(Value)
+      {
+          return Value * Math.PI / 180;
+      }
+      function duljina(x1,y1,x2,y2) {
+        var R = 6371;
+        var dx = toRad(x2-x1);
+        var dy = toRad(y2-y1);
+        var a =
+          Math.sin(dx/2) * Math.sin(dx/2) +
+          Math.cos(toRad(x1)) * Math.cos(toRad(x2)) *
+          Math.sin(dy/2) * Math.sin(dy/2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        var d = R * c;
+        return d;
+      }
+      //
+      function placeMarker(location) {
+          var marker = new google.maps.Marker({
+              position: location,
+              map: map
+          });
+          ax=location.lat();
+          ay=location.lng();
+          console.log(ax,ay);//
+
+          var bx = [[83.0833335,-73.500001], [79.3666674,95.6500013], [75.4166675,-83.2500005], [64.666668,-16.166667], [64.666668,-17.0330
+          ],[77.500001, 24.0],[60.5333344,    7.3666674],[63.4333342,    -146.7833349]];
+          min=9999999999999;
+          for(i=0;i<bx.length; i++) {
+            x1=ax;
+            y1=ay;
+            x2=bx[i][0];
+            y2=bx[i][1];
+            if(duljina(x1,y1,x2,y2)<min) {
+              min=duljina(x1,y1,x2,y2);
+              indeks=i;
+            }
+          }
+          console.log(min);
+          if(indeks==2 || indeks==0) {
+            var infowindow = new google.maps.InfoWindow({
+                content: 'Distance from closest glacier: ' + min +  '<br> Region: <a href="Canada.html">Canada</a>'
+            });
+          }
+          if(indeks==3 || indeks==4) {
+            var infowindow = new google.maps.InfoWindow({
+                content: 'Distance from closest glacier: ' + min +  '<br> Region: <a href="Iceland.html">Iceland</a>'
+            });
+          }
+          if(indeks==1) {
+            var infowindow = new google.maps.InfoWindow({
+                content: 'Distance from closest glacier: ' + min +  '<br> Region: <a href="Russia.html">Russia</a>'
+            });
+          }
+          if(indeks==5 || indeks==6) {
+            var infowindow = new google.maps.InfoWindow({
+                content: 'Distance from closest glacier: ' + min + '<br> Region: <a href="Scandinavia.html">Scandinavia</a>'
+            });
+          }
+          if(indeks==7) {
+            var infowindow = new google.maps.InfoWindow({
+                content: 'Distance from closest glacier: ' + min + '<br> Region: <a href="Alaska.html">Alaska</a>'
+            });
+          }
+          ClearMarkers();
+          markers.push(marker);
+          infowindow.open(map, marker);
+
+      }
+      function ClearMarkers(map) {
+          for (var i = 0; i < markers.length; i++) {
+              markers[i].setMap(null);
+          }
+          markers = [];
+      }
+
+      //asd
+      function toggleHeatmap() {
+        heatmap.setMap(heatmap.getMap() ? null : map);
+      }
+
+      function changeGradient() {
+        var gradient = [
+          'rgba(0, 192, 191, 1)',
+          'rgba(0, 55, 91, 0)',
+          'rgba(0, 55, 63, 0)',
+          'rgba(0, 55, 31, 0)',
+          'rgba(0, 55, 0, 1)'
+        ]
+        heatmap.set('gradient', heatmap.get('gradient') ? null : gradient);
+      }
+
+
+      function getPoints() {
+        return [
+          new google.maps.LatLng(83.0833335, -73.500001),
+          new google.maps.LatLng(79.3666674,	95.6500013),
+          new google.maps.LatLng(75.4166675,	-83.2500005),
+          new google.maps.LatLng(64.666668,	-16.166667),
+          new google.maps.LatLng(64.666668, -17.0330),
+          new google.maps.LatLng(77.500001,   24.00),
+          new google.maps.LatLng(60.5333344,    7.3666674),
+          new google.maps.LatLng(63.4333342,    -146.7833349)
+        ];
+      }
+
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsujRYDNDWOMPbkoM1ZCLj6sOp5iwsfZM&libraries=visualization&callback=initMap">
+    </script>
+  </body>
+</html>

@@ -15,47 +15,47 @@
 
     <!-- Custom styles for this template -->
     <link href="css/small-business.css" rel="stylesheet">
-    
+
     <style>
-		
-	 
+
+
 		.levo {
 			padding-left: 200px;
 			margin-bottom: 50px;
 		}
-		
+
 		#hide {
 			display: none;
 		}
-		
+
 		#show {
 			display: block;
 		}
-	  
+
 	 </style>
-	 
+
 	 <script>
-	 	
+
 		function promena() {
-			
+
 			//document.getElementById("hide").style.display = "block";
 			//document.getElementById("show").style.display = "none";
-			
+
 			if(document.getElementById("izabrano").value == "2") {
 				document.getElementById("hide").style.display = "block";
 				document.getElementById("show").style.display = "none";
 			}
-			
+
 			else {
 				document.getElementById("hide").style.display = "none";
 				document.getElementById("show").style.display = "block";
 			}
-			
+
 			//console.log("promena");
-			
+
 		}
-	 	
-	 	
+
+
 	 </script>
 
   </head>
@@ -75,7 +75,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+              <a class="nav-link" href="Canada.html">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -83,13 +83,13 @@
     <div class="input-group">
     <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Locations</button>
     <div class="dropdown-menu">
-       <a class="dropdown-item" href="Canada.html">Alaska</a>
+       <a class="dropdown-item" href="Alaska.html">Alaska</a>
       <a class="dropdown-item" href="Canada.html">Canada</a>
 	  <a class="dropdown-item" href="Iceland.html">Iceland</a>
       <a class="dropdown-item" href="Russia.html">Russia</a>
       <a class="dropdown-item" href="Scandinavia.html">Scandinavia</a>
     </div>
-            
+
         </div>
        			</li>
 			</ul>
@@ -103,26 +103,26 @@
       <!-- Heading Row -->
       <div class="row my-4">
         <div class="col-lg-8">
-         
+
         </div>
         <!-- /.col-lg-8 -->
 		<div align="center">
           <h1>Canada's subpolar glaciers and mountain ranges</h1>
-        
+
 		</div>
         <!-- /.col-md-4 -->
       </div>
       <!-- /.row -->
-      
+
 	<div>
-	
+
 	<select id="izabrano" onchange="promena()">
 		<option value="1">Ward Hunt Island</option>
 		<option value="2">Devon Ice Cap</option>
 	</select>
 	<br><br>
-	
-	
+
+
 	<div id="show">
 						<h3><b>Ward Hunt Island</b></h3>
 
@@ -181,8 +181,8 @@
 							<img class="levo" src="slike/WarHunt.jpg" width="800px" alt="">
 						</div>
 				</div>
-				
-				
+
+
 
 				<div id="hide">
 						<h3><b>Devon Ice Cap</b></h3>
@@ -239,9 +239,9 @@
 					</table>
 					<img class="levo" src="slike/devonice.jpg" width="800px" alt="">
 					</div>
-</div>		
-  
-	
+</div>
+
+
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
@@ -254,8 +254,8 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-		
-		
+
+
   </body>
 
 </html>

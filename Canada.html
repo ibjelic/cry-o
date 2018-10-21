@@ -3,28 +3,6 @@
 
   <head>
 
-  <style>
-  #1 {
-	display: block;
-
-  }
-
-  #2{
-
-	display: none;
-  }
-
-
-  </style>
-	<script>
-
-  $('.collapse').on('show.bs.collapse', function () {
-    $('.collapse.in').each(function(){
-        $(this).collapse('hide');
-    });
-  });
-  
-	 </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -37,6 +15,81 @@
 
     <!-- Custom styles for this template -->
     <link href="css/small-business.css" rel="stylesheet">
+
+
+    <style>
+		#jedan {
+			display: block;
+		}
+
+		#dva {
+			display: none;
+		}
+
+		#tri, #cetiri, #pet, #sest {
+			display: none;
+		}
+
+	  </style>
+
+	  <script>
+
+	  function promena() {
+		  if(document.getElementById("izabrano").value=="1") {
+			  document.getElementById("jedan").style.display = "block";
+			  document.getElementById("dva").style.display = "none";
+			  document.getElementById("tri").style.display = "none";
+			  document.getElementById("cetiri").style.display = "none";
+			  document.getElementById("pet").style.display = "none";
+			  document.getElementById("sest").style.display = "none";
+		  }
+
+		  else if(document.getElementById("izabrano").value=="2"){
+			  document.getElementById("jedan").style.display = "none";
+			  document.getElementById("dva").style.display = "block";
+			  document.getElementById("tri").style.display = "none";
+			  document.getElementById("cetiri").style.display = "none";
+			  document.getElementById("pet").style.display = "none";
+			  document.getElementById("sest").style.display = "none";
+		  }
+		  else if(document.getElementById("izabrano").value=="3"){
+			  document.getElementById("jedan").style.display = "none";
+			  document.getElementById("dva").style.display = "none";
+			  document.getElementById("tri").style.display = "block";
+			  document.getElementById("cetiri").style.display = "none";
+			  document.getElementById("pet").style.display = "none";
+			  document.getElementById("sest").style.display = "none";
+		  }
+		   else if(document.getElementById("izabrano").value=="4"){
+			  document.getElementById("jedan").style.display = "none";
+			  document.getElementById("dva").style.display = "none";
+			  document.getElementById("tri").style.display = "none";
+			  document.getElementById("cetiri").style.display = "block";
+			  document.getElementById("pet").style.display = "none";
+			  document.getElementById("sest").style.display = "none";
+		  }
+		   else if(document.getElementById("izabrano").value=="5"){
+			  document.getElementById("jedan").style.display = "none";
+			  document.getElementById("dva").style.display = "none";
+			  document.getElementById("tri").style.display = "none";
+			  document.getElementById("cetiri").style.display = "none";
+			  document.getElementById("pet").style.display = "block";
+			  document.getElementById("sest").style.display = "none";
+		  }
+		   else if(document.getElementById("izabrano").value=="6"){
+			  document.getElementById("jedan").style.display = "none";
+			  document.getElementById("dva").style.display = "none";
+			  document.getElementById("tri").style.display = "none";
+			  document.getElementById("cetiri").style.display = "none";
+			  document.getElementById("pet").style.display = "none";
+			  document.getElementById("sest").style.display = "block";
+		  }
+
+
+	  }
+
+
+	  </script>
 
   </head>
 
@@ -55,7 +108,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home
+              <a class="nav-link" href="Canada.html">Home
                 <span class="sr-only">(current)</span>
               </a>
             </li>
@@ -63,13 +116,14 @@
               			<div class="input-group">
     <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Locations</button>
     <div class="dropdown-menu">
-      <a class="dropdown-item" href="Canada.html">Russia</a>
+      <a class="dropdown-item" href="Russia.html">Russia</a>
       <a class="dropdown-item" href="Alaska.html">Alaska</a>
       <a class="dropdown-item" href="Iceland.html">Iceland</a>
       <a class="dropdown-item" href="Scandinavia.html">Scandinavia</a>
     </div>
 </div>
             </li>
+			</ul>
         </div>
       </div>
     </nav>
@@ -80,19 +134,31 @@
       <!-- Heading Row -->
       <div class="row my-4">
         <div class="col-lg-8">
-          <img class="img-fluid rounded" src="slike\Ellesmere_island.jpg" height=900px; width=900px; alt="">
+          <br><br><br>
+          <img class="img-fluid rounded" src="slike/canada.jpg" height=900px; width=900px; alt="">
         </div>
         <!-- /.col-lg-8 -->
         <div class="col-lg-4">
           <h1>Canada Region</h1>
           <p>Canada's significan subpolar glaciers and mountain ranges.</p>
-		  <div class="card h-40">
+
+          <div class="card h-40">
             <div class="card-body">
               <h2 class="card-title">Subpolar Glaciers</h2>
               <p class="card-text">Find more information about region's ice covered areas.</p>
             </div>
             <div class="card-footer">
               <a href="CanadaGlaciers.html" class="btn btn-primary">More Info</a>
+            </div>
+          </div>
+          <br>
+          <div class="card h-40">
+            <div class="card-body">
+              <h2 class="card-title">Ocean Currents</h2>
+              <p class="card-text">Find more information about currents.</p>
+            </div>
+            <div class="card-footer">
+              <a href="https://podaac.jpl.nasa.gov/" class="btn btn-primary">More Info</a>
             </div>
           </div>
         </div>
@@ -105,34 +171,227 @@
       <!-- Call to Action Well -->
       <div class="card text-white bg-secondary my-4 text-center">
         <div class="card-body">
-          <p class="text-white m-0">Total influence of Canada region</p>
+          <p class="text-white m-0">Total influence on sea level rise</p>
         </div>
       </div>
 
-      <!-- Content Row -->
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown button
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" data-toggle="collapse" href="#helsinki" role="button"  data-parent="#myGroup" aria-expanded="false" aria-controls="helsinki">Helsinki</a>
-          <a class="dropdown-item" data-toggle="collapse" href="#nyc" role="button"  data-parent="#myGroup" aria-expanded="false" aria-controls="nyc">NYC</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </div>
-      <div class="collapse" id="helsinki">
-        <div class="card card-body">
-            Helsinkiburaz
-        </div>
-      </div>
-      <div class="collapse" id="nyc">
-        <div class="card card-body">
-            NYCBURAZ
-        </div>
-      </div>
-      <!-- /.row -->
-    <br>
-    <br>
+
+      <select id="izabrano" onchange="promena()">
+		<option value="1">Helsinki</option>
+		<option value="2">New York City</option>
+		<option value="3">Nordvik</option>
+		<option value="4">Canaria</option>
+		<option value="5">Dublin</option>
+		<option value="6">Stockholm</option>
+	</select>
+
+
+      <div id="jedan">
+      <h3><b>Helsinki</b></h3>
+
+					<table class="table">
+					  <thead class="thead-light">
+						<tr>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Local Sea Level Change Contributed by Glaciers/Ice Sheets</b></td>
+						  <td>0.6555 mm / yr (30.7% total)</td>
+
+						</tr>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Basin contribution Arctic Canada, North</b></td>
+						  <td>0.04154 mm / yr (1.9% total)</td>
+
+						</tr>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Total contribution (Ice + Ocean)</b></td>
+						  <td>2.135 mm / yr</td>
+
+						</tr>
+						</tbody>
+		</table>
+		</div>
+
+     <div id="dva">
+      <h3><b>NYC</b></h3>
+
+					<table class="table">
+					  <thead class="thead-light">
+						<tr>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Local Sea Level Change Contributed by Glaciers/Ice Sheets</b></td>
+						  <td>0.9722 mm / yr (39.6% total)</td>
+
+						</tr>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Basin contribution Arctic Canada, North</b></td>
+						  <td>0.05198 mm / yr (2.1% total)</td>
+
+						</tr>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Total contribution (Ice + Ocean)</b></td>
+						  <td>2.452 mm / yr</td>
+
+						</tr>
+						</tbody>
+		</table>
+		</div>
+
+      <div id="tri">
+      <h3><b>Nordvik</b></h3>
+
+					<table class="table">
+					  <thead class="thead-light">
+						<tr>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Local Sea Level Change Contributed by Glaciers/Ice Sheets</b></td>
+						  <td>0.3630 mm / yr (19.7% total)</td>
+
+						</tr>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Basin contribution Arctic Canada, North</b></td>
+						  <td>0.03013 mm / yr (1.6% total)</td>
+
+						</tr>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Total contribution (Ice + Ocean)</b></td>
+						  <td>1.843 mm / yr</td>
+
+						</tr>
+						</tbody>
+		</table>
+		</div>
+	  <div id="cetiri">
+      <h3><b>Nordvik</b></h3>
+
+					<table class="table">
+					  <thead class="thead-light">
+						<tr>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Local Sea Level Change Contributed by Glaciers/Ice Sheets</b></td>
+						  <td>1.165 mm / yr (44.0% total)</td>
+
+						</tr>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Basin contribution Arctic Canada, North</b></td>
+						  <td>0.07753 mm / yr (2.9% total)</td>
+
+						</tr>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Total contribution (Ice + Ocean)</b></td>
+						  <td>2.645 mm / yr</td>
+
+						</tr>
+						</tbody>
+		</table>
+		</div>
+		<div id="pet">
+      <h3><b>Dublin</b></h3>
+
+					<table class="table">
+					  <thead class="thead-light">
+						<tr>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Local Sea Level Change Contributed by Glaciers/Ice Sheets</b></td>
+						  <td>0.4923 mm / yr (25.0% total)</td>
+
+						</tr>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Basin contribution Arctic Canada, North</b></td>
+						  <td>0.04378 mm / yr (2.2% total)</td>
+
+						</tr>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Total contribution (Ice + Ocean)</b></td>
+						  <td>1.972 mm / yr</td>
+
+						</tr>
+						</tbody>
+		</table>
+		</div>
+		<div id="sest">
+      <h3><b>Stockholm</b></h3>
+
+					<table class="table">
+					  <thead class="thead-light">
+						<tr>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						  <th scope="col"></th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Local Sea Level Change Contributed by Glaciers/Ice Sheets</b></td>
+						  <td>0.5853 mm / yr (28.3% total)</td>
+
+						</tr>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Basin contribution Arctic Canada, North</b></td>
+						  <td>0.03889 mm / yr (1.9% total)</td>
+
+						</tr>
+						<tr>
+						  <th scope="row"></th>
+						  <td><b>Total contribution (Ice + Ocean)</b></td>
+						  <td>2.065 mm / yr</td>
+
+						</tr>
+						</tbody>
+		</table>
+		</div>
     </div>
     <!-- /.container -->
 
